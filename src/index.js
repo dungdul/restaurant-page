@@ -14,4 +14,4 @@ function addEventListeners() {
 }
 
 addEventListeners();
-renderAboutPage();
+renderHomePage();
