@@ -86,13 +86,9 @@ header {
   margin: 0 auto;
   padding: 48px;
   text-align: center;
-
-  > :not(:last-child) {
-    margin-bottom: 38px;
-  }
 }
 
-.menu {
+.section-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,7 +96,7 @@ header {
   padding: 48px;
 }
 
-.menu-section {
+.section {
   h2 {
     text-align: center;
     font-size: 1.4rem;

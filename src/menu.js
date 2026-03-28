@@ -1,3 +1,5 @@
+import createSection from './createSection.js';
+
 export default function () {
   const contentDiv = document.querySelector('#content');
 
@@ -14,48 +16,28 @@ export default function () {
 
   // Menu container
   const menuDiv = document.createElement('div');
-  menuDiv.classList.add('menu');
-
-  // Helper function to create a section
-  function createMenuSection(titleText, items) {
-    const sectionDiv = document.createElement('div');
-    sectionDiv.classList.add('menu-section');
-
-    const title = document.createElement('h2');
-    title.textContent = titleText;
-
-    const list = document.createElement('ul');
-
-    items.forEach(item => {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${item.name} — $${item.price}`;
-      list.appendChild(listItem);
-    });
-
-    sectionDiv.append(title, list);
-    return sectionDiv;
-  }
+  menuDiv.classList.add('section-container');
 
   // Data (small set)
   const starters = [
-    { name: 'Tomato Basil Soup', price: 6 },
-    { name: 'Garlic Bread', price: 5 },
+    'Tomato Basil Soup $6',
+    'Garlic Bread $5',
   ];
 
   const mains = [
-    { name: 'Grilled Chicken', price: 14 },
-    { name: 'Seared Salmon', price: 18 },
+    'Grilled Chicken $14',
+    'Seared Salmon $18',
   ];
 
   const desserts = [
-    { name: 'Chocolate Cake', price: 7 },
-    { name: 'Ice Cream', price: 4 },
+    'Chocolate Cake $7',
+    'Ice Cream $4',
   ];
 
   // Create sections
-  const startersSection = createMenuSection('Starters', starters);
-  const mainsSection = createMenuSection('Main Courses', mains);
-  const dessertsSection = createMenuSection('Desserts', desserts);
+  const startersSection = createSection('Starters', starters);
+  const mainsSection = createSection('Main Courses', mains);
+  const dessertsSection = createSection('Desserts', desserts);
 
   // Append sections to menu
   menuDiv.append(startersSection, mainsSection, dessertsSection);

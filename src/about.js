@@ -1,3 +1,5 @@
+import createSection from "./createSection.js";
+
 export default function () {
   const contentDiv = document.querySelector('#content');
 
@@ -13,64 +15,33 @@ export default function () {
   heroDiv.appendChild(heroText);
 
   // Main container
-  const mainDiv = document.createElement('div');
-  mainDiv.classList.add('main');
-
-  // Description
-  const description = document.createElement('p');
-  description.textContent =
-    'Savory Haven is a place where great food and warm atmosphere come together. Since opening, we have focused on fresh ingredients, simple recipes, and flavors that feel both familiar and exciting.';
-
-  // Helper function to create info sections
-  function createInfoSection(titleText, contentElements) {
-    const sectionDiv = document.createElement('div');
-    sectionDiv.classList.add('info-section');
-
-    const title = document.createElement('h2');
-    title.textContent = titleText;
-
-    sectionDiv.appendChild(title);
-
-    contentElements.forEach(el => sectionDiv.appendChild(el));
-
-    return sectionDiv;
-  }
+  const aboutDiv = document.createElement('div');
+  aboutDiv.classList.add('section-container');
 
   // Opening Hours
-  const hoursList = document.createElement('ul');
-
   const hours = [
     'Mon - Fri: 11:00 AM - 10:00 PM',
     'Sat: 10:00 AM - 11:00 PM',
     'Sun: 10:00 AM - 9:00 PM',
   ];
 
-  hours.forEach(h => {
-    const li = document.createElement('li');
-    li.textContent = h;
-    hoursList.appendChild(li);
-  });
-
-  const hoursSection = createInfoSection('Opening Hours', [hoursList]);
+  const hoursSection = createSection('Opening Hours', hours);
 
   // Location
-  const locationText = document.createElement('p');
-  locationText.textContent = '123 Flavor Street, Foodie City, FC 12345';
+  const locationText = '123 Flavor Street, Foodie City, FC 12345';
 
-  const locationSection = createInfoSection('Location', [locationText]);
+  const locationSection = createSection('Location', [locationText]);
 
   // Contact
-  const phone = document.createElement('p');
-  phone.textContent = 'Phone: (123) 456-7890';
+  const phone = 'Phone: (123) 456-7890';
 
-  const email = document.createElement('p');
-  email.textContent = 'Email: hello@savoryhaven.com';
+  const email = 'Email: hello@savoryhaven.com';
 
-  const contactSection = createInfoSection('Contact', [phone, email]);
+  const contactSection = createSection('Contact', [phone, email]);
 
   // Assemble main
-  mainDiv.append(description, hoursSection, locationSection, contactSection);
+  aboutDiv.append(hoursSection, locationSection, contactSection);
 
   // Append to content
-  contentDiv.append(heroDiv, mainDiv);
+  contentDiv.append(heroDiv, aboutDiv);
 }
