@@ -86,6 +86,10 @@ header {
   margin: 0 auto;
   padding: 48px;
   text-align: center;
+
+  > :not(:last-child) {
+    margin-bottom: 38px;
+  }
 }
 
 .menu {
