@@ -1,3 +1,4 @@
+import renderHomePage from './home.js';
 import './styles.css';
 
-console.log('Running');
+renderHomePage();
